@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node geektrust.js",
-    "test": "nyc mocha"
+    "test": "nyc --all mocha"
   },
   "author": "geektrust",
   "license": "ISC",
