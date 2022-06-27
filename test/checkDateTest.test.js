@@ -1,7 +1,6 @@
-import { assert } from 'chai';
-import { checkDateFormat } from '../functionality/checkDateFormat.js';
-// import { cleanup } from '@testing-library/react';
-// afterEach(cleanup);
+const assert = require('chai').assert;
+const checkDateFormat = require('../functionality/checkDateFormat.js');
+
 describe('Date test', function () {
 
     // let check = checkDate;

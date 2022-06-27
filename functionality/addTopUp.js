@@ -1,14 +1,13 @@
-import { outputErrorList, TOPUP, TRACK_SUBSCRIPTION } from "./config.js";
+const config = require('./config.js');
 
-export const addTopUp = (data) => {
-    console.log(data);
+const addTopUp = (data) => {
     var RENEWAL_AMOUNT = 0;
-    if (!(TRACK_SUBSCRIPTION.includes('ADD_TOPUP'))) {
-        RENEWAL_AMOUNT += Number(data[1]) * TOPUP[data[0]];
-        TRACK_SUBSCRIPTION.push('ADD_TOPUP');
+    if (!(config.TRACK_SUBSCRIPTION.includes('ADD_TOPUP'))) {
+        RENEWAL_AMOUNT += Number(data[1]) * config.TOPUP[data[0]];
+        config.TRACK_SUBSCRIPTION.push('ADD_TOPUP');
     } else {
-        outputErrorList.push('ADD_TOPUP_FAILED DUPLICATE_TOPUP')
+        config.outputErrorList.push('ADD_TOPUP_FAILED DUPLICATE_TOPUP')
     }
-    console.log(RENEWAL_AMOUNT);
     return RENEWAL_AMOUNT;
 }
+module.exports = addTopUp;

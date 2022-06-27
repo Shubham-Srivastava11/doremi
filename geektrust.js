@@ -1,7 +1,7 @@
-import * as fs from 'fs';
-import { checkDateFormat } from "./functionality/checkDateFormat.js";
-import { CATEGORY, TOPUP, TRACK_SUBSCRIPTION, outputErrorList, outputList, dateFormat, FINAL_OUTPUT } from "./functionality/config.js";
-import { checkCategory } from './functionality/checkCategory.js';
+const fs = require('fs');
+const config = require('./functionality/config.js');
+const checkDateFormat = require('./functionality/checkDateFormat.js');
+const checkCategory = require('./functionality/checkCategory.js');
 
 const filename = process.argv[2]
 fs.readFile(filename, "utf8", (err, data) => {
@@ -23,15 +23,15 @@ fs.readFile(filename, "utf8", (err, data) => {
         }
     } else {
         console.log('INVALID_DATE');
-        FINAL_OUTPUT.push("INVALID_DATE");
+        config.FINAL_OUTPUT.push("INVALID_DATE");
         for (let command of Lines.slice(1)) {
             if (command[0].includes('ADD')) {
                 console.log(command[0] + '_FAILED INVALID_DATE');
-                FINAL_OUTPUT.push(command[0] + '_FAILED INVALID_DATE');
+                config.FINAL_OUTPUT.push(command[0] + '_FAILED INVALID_DATE');
             }
         }
         console.log('SUBSCRIPTIONS_NOT_FOUND');
-        FINAL_OUTPUT.push('SUBSCRIPTIONS_NOT_FOUND');
+        config.FINAL_OUTPUT.push('SUBSCRIPTIONS_NOT_FOUND');
     }
 
 })

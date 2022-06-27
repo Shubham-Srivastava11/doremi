@@ -1,10 +1,11 @@
-import { outputList } from "./config.js";
+const config = require('./config.js');
 
-export const printSubscription = (category, str, endPersonal, endPremium) => {
+const printSubscription = (category, str, endPersonal, endPremium) => {
     if (str === 'PERSONAL') {
-        outputList.push('RENEWAL_REMINDER ' + category + ' ' + endPersonal);
+        config.outputList.push('RENEWAL_REMINDER ' + category + ' ' + endPersonal);
     } else {
-        outputList.push('RENEWAL_REMINDER ' + category + ' ' + endPremium);
+        config.outputList.push('RENEWAL_REMINDER ' + category + ' ' + endPremium);
     }
-
 }
+
+module.exports = printSubscription;

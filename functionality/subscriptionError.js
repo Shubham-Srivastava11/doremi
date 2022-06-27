@@ -1,5 +1,7 @@
-import { outputErrorList } from "./config.js";
+const config = require('./config.js');
 
-export const subscriptionError = () => {
-    outputErrorList.push('ADD_SUBSCRIPTION_FAILED DUPLICATE_CATEGORY');
+const subscriptionError = () => {
+    config.outputErrorList.push('ADD_SUBSCRIPTION_FAILED DUPLICATE_CATEGORY');
 }
+
+module.exports = subscriptionError;

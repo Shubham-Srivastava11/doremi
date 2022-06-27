@@ -1,13 +1,13 @@
-import { outputList } from "./config.js";
-import { addPaidSubs } from "./addPaidSubs.js";
+const config = require('./config.js');
+const addPaidSubs = require('./addPaidSubs.js');
 
-export const addSubscription = (data, endPersonal, endPremium) => {
+const addSubscription = (data, endPersonal, endPremium) => {
     if (data[1] !== 'FREE') {
         return addPaidSubs(data, endPersonal, endPremium);
     } else {
-        outputList.push('RENEWAL_REMINDER ' + data[0] + ' ' + endPersonal);
+        config.outputList.push('RENEWAL_REMINDER ' + data[0] + ' ' + endPersonal);
         return 0;
     }
-
-
 }
+
+module.exports = addSubscription;
