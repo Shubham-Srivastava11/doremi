@@ -2,10 +2,10 @@
   "name": "geektrust",
   "version": "1.0.0",
   "description": "geektrust-project",
-  "main": "index.js",
+  "main": "geektrust.js",
   "scripts": {
     "start": "node geektrust.js",
-    "test": "nyc mocha"
+    "test": "mocha"
   },
   "author": "geektrust",
   "license": "ISC",
